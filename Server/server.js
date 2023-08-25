@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 res.send('Hello von Express');
 });
 
-
+/*Diese Zeile startet den Webserver und lässt ihn auf einem bestimmten Port laufen. */
 app.listen(port, () => {
 console.log(`Server läuft auf Port ${port}`);
 });
