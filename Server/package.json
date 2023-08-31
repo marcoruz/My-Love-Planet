@@ -1,0 +1,26 @@
+{
+  "name": "my-love-planet",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "npx nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^6.0.0",
+<<<<<<< HEAD
+    "mongoose": "^7.4.5",
+=======
+>>>>>>> 8856deca275cf870e7be1fa6adcda84b31f88ede
+    "mongosh": "^1.10.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "description": ""
+}
