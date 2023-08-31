@@ -1,6 +1,7 @@
 
+
 // const express = require('express');
-<<<<<<< HEAD
+
 // const mongoos = require('mongoose')
 // const app = express()
 
@@ -36,34 +37,34 @@
 
 // });
 
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
 const app = express();
-=======
+
 // const cors = require('cors');
 // const api = require('./routes/api');
 // const app = express();
 // const port = 8080; app.use(cors()); 
->>>>>>> 8856deca275cf870e7be1fa6adcda84b31f88ede
+
 
 const port = 8080;
 
-<<<<<<< HEAD
 // Markieren Sie die run-Funktion als async
 async function run() {
     try {
         
-=======
+
 // app.use('/api', api);
->>>>>>> 8856deca275cf870e7be1fa6adcda84b31f88ede
 
         await mongoose.connect('mongodb+srv://NomadNexus:techstarter5@my-love-planet.vco2jng.mongodb.net/Maps?retryWrites=true&w=majority', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
 
-<<<<<<< HEAD
+
         const MapsSchema = new mongoose.Schema({
             city: String,
             state: String,
@@ -101,7 +102,7 @@ app.listen(port, () => {
 
 
 
-=======
+
 // /*
 // app.get('/'): 
 // Hier wird eine HTTP-GET-Anfrage auf der Wurzelroute ("/") definiert. 
@@ -116,4 +117,34 @@ app.listen(port, () => {
 // app.listen(port, () => {
 // console.log(`Server läuft auf Port ${port}`);
 // });
->>>>>>> 8856deca275cf870e7be1fa6adcda84b31f88ede
+
+
+const path = require('path');
+const apiRoutes = require('./routes/api');  // Importieren Sie die API-Routen nur einmal
+
+const app = express();
+const port = 8080;
+
+// CORS Middleware
+app.use(cors());
+
+// Body Parser Middleware (für POST-Anfragen)
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// API Routes
+app.use('/api', apiRoutes);  // Fügen Sie die API-Routen nur einmal hinzu
+
+// Static File Handling for React
+app.use(express.static(path.join(__dirname, '../Client/build')));
+
+// Catch-All for React Router
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../Client/build', 'index.html'));
+});
+
+// Start Server
+app.listen(port, () => {
+  console.log(`Server läuft auf Port ${port}`);
+});
+
