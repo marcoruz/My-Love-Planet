@@ -7,4 +7,8 @@ router.post('/addCity', (req, res) => {
   res.json({ message: `Stadt ${city} hinzugefügt.` });
 });
 
+
 module.exports = router;
+
+module.exports = router;
+
