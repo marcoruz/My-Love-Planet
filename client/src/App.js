@@ -3,7 +3,13 @@ import {
   Route,
   useNavigationType,
   useLocation,
-} from "react-router-dom";
+} 
+
+/*
+Routes, Route, useNavigationType, useLocation: Diese Elemente werden aus der "react-router-dom"-Bibliothek importiert und sind Teil des React Router-DOM-Pakets.
+*/
+
+from "react-router-dom";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import AppPage from "./pages/AppPage";
