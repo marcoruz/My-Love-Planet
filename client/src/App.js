@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
 import {
   Routes,
   Route,
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import LandingPage3 from "./pages/LandingPage3";
-import LandingPage2 from "./pages/LandingPage2";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import AppPage from "./pages/AppPage";
+import LandingPage from "./pages/LandingPage2";
+import { useEffect } from "react";
 
 function App() {
   const action = useNavigationType();
@@ -17,21 +19,28 @@ function App() {
     if (action !== "POP") {
       window.scrollTo(0, 0);
     }
+  }, [action, pathname]);
 
+  useEffect(() => {
     let title = "";
     let metaDescription = "";
 
     switch (pathname) {
       case "/":
-        title = "Home Page Title";
-        metaDescription = "Description for the home page.";
+        title = "";
+        metaDescription = "";
         break;
-      case "/landing-page-2":
-        title = "Landing Page 2 Title";
-        metaDescription = "Description for landing page 2.";
+      case "/about":
+        title = "";
+        metaDescription = "";
         break;
-      default:
-        // Add a default case or set values for other paths
+      case "/app-page":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/landing-page":
+        title = "";
+        metaDescription = "";
         break;
     }
 
@@ -47,76 +56,15 @@ function App() {
         metaDescriptionTag.content = metaDescription;
       }
     }
-  }, [action, pathname]);
+  }, [pathname]);
 
   return (
     <Routes>
-      <Route path="/" element={<LandingPage3 />} />
-      <Route path="/landing-page-2" element={<LandingPage2 />} />
+      <Route path="/" element={<Contact />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/app-page" element={<AppPage />} />
+      <Route path="/landing-page" element={<LandingPage />} />
     </Routes>
   );
 }
-
-
-// frontend.js
-fetch('http://localhost:3000/api/map')
-  .then(response => response.json())
-  .then(data => {
-    // Verarbeiten Sie die erhaltenen Daten
-    console.log(data);
-  })
-  .catch(error => {
-    // Behandeln Sie Fehler
-    console.error('Error:', error);
-  });
-
-// Server-Antworten verarbeiten:
-// javascript
-// Copy code
-
-
-// HTTP-Anfragen vom Frontend senden
-
-fetch('http://localhost:8080/api/map') 
-  .then(response => response.json())
-  .then(data => {
-    // Verarbeiten Sie die erhaltenen Daten
-    console.log(data);
-  })
-  .catch(error => {
-    // Behandeln Sie Fehler
-    console.error('Error:', error);
-  });
-
-
-  // Server-Antworten verarbeiten
-
-  fetch('http://localhost:8080/api/map')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    // Verarbeiten Sie die erhaltenen Daten
-    const { lat, lon } = data;
-
-    // Verwenden Sie lat und lon, um OpenStreetMap im Frontend anzuzeigen
-    console.log('Latitude:', lat);
-    console.log('Longitude:', lon);
-    
-    // Hier können Sie OpenStreetMap-Code oder andere Funktionen aufrufen, um die Karte anzuzeigen
-  })
-  .catch(error => {
-    // Behandeln Sie Fehler
-    console.error('Error:', error);
-  });
-
-
-
-
-
-
-
 export default App;

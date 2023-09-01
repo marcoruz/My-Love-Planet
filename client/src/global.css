@@ -1,51 +1,63 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400&display=swap");
 body {
   margin: 0;
   line-height: normal;
 }
 :root {
   /* fonts */
+  --body: Inter;
+  --button: "Open Sans";
   --regular-14: Roboto;
   --font-inherit: inherit;
+  --font-play: Play;
 
   /* font sizes */
-  --font-size-11xl: 30px;
-  --font-size-5xl: 24px;
-  --regular-14-size: 14px;
-  --medium-36-size: 36px;
+  --body-size: 16px;
+  --body-small-size: 14px;
   --bold-26-size: 26px;
+  --font-size-5xl: 24px;
+  --font-size-11xl: 30px;
 
   /* Colors */
-  --color-whitesmoke: #f5f5f5;
-  --color-black: #000;
-  --colour-secondary-white-100-general: #fff;
-  --color-lavender: #e7ecff;
-  --colour-main-blue-300: #929ecc;
-  --color-lightgray: #cdd1d4;
+  --white: #fff;
+  --secondary: #9ba5b7;
   --colour-main-grey-400: #939ea4;
-  --colour-background-light-grey: #fbfbfd;
+  --primary: #545f71;
+  --true-gray: #7f878f;
+  --black: #1b1d1f;
   --colour-main-blue-900: #091133;
-  --colour-logo-primary: #37447e;
+  --color-whitesmoke: #f5f5f5;
   --colour-main-blue-500: #505f98;
+  --colour-main-grey-700: #454e54;
+  --color-lightgray: #cdd1d4;
+  --colour-logo-primary: #37447e;
+  --color-black: #000;
+  --colour-logo-primary1: #cd1616;
 
   /* Gaps */
+  --gap-3xs: 10px;
+  --gap-base: 16px;
+  --gap-24xl: 43px;
   --gap-27xl: 46px;
   --gap-xl: 20px;
   --gap-11xl: 30px;
   --gap-646xl: 665px;
   --gap-41xl: 60px;
-  --gap-26xl: 45px;
-  --gap-144xl: 163px;
 
   /* Paddings */
-  --padding-21xl: 40px;
+  --padding-base: 16px;
+  --padding-xs: 12px;
+  --padding-5xs: 8px;
   --padding-48xl: 67px;
   --padding-146xl: 165px;
   --padding-13xl: 32px;
-  --padding-9xs: 4px;
 
   /* border radiuses */
+  --br-7xs: 6px;
   --br-xl: 20px;
+  --br-3xl: 22px;
+  --br-59xl: 78px;
 }
