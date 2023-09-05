@@ -7,10 +7,12 @@
     "dev": "npx nodemon server.js",
     "start": "node server.js"
 
+
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "npx nodemon server.js"
+
 
   },
   "keywords": [],
@@ -34,5 +36,6 @@
   "devDependencies": {
     "nodemon": "^3.0.1"
   }
+
 
 }

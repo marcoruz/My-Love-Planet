@@ -1,9 +1,20 @@
 
-
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Place = require('./Models/place')
+
+const Ort = require('./Models/ortdaten')
+const db = require("./db");
+const cors = require('cors');
+
+const app = express();
+const port = 8080;
+
+app.use(cors());
+app.use(bodyParser.json());
+
+
 const db = require("./db");
 const cors = require('cors');
 
@@ -23,6 +34,7 @@ app.use(bodyParser.json());
 
 // CORS Middleware
 app.use(cors());
+
 
 
 // Body Parser Middleware (für POST-Anfragen)
@@ -48,6 +60,14 @@ app.post('/add', (req, res) => {
     .catch(err => res.send(err))
 });
 
+
+
+app.post('/ortdaten', (req, res) => {
+    Ort.create ({
+        zipCode: req.body.zipCode,
+        street : req.body.street,
+    }).then((newdaten)=>{res.send(newdaten)})
+
 // Mussen wir noch anpassen
 
 app.post('/ortdaten', (req, res) => {
@@ -58,9 +78,23 @@ app.post('/ortdaten', (req, res) => {
         note:  req.body. note,
         visit: req.body.visit
     }).then((newplace)=>{res.send(newplace)})
+
     
     .catch(err => res.send(err))
 });
+
+
+app.get('/allplaces', async (req, res) => {
+    const allplaces = await Place.find({})
+    .catch((err) => res.status(500).send("Server Error"));
+    res.status(200).json(allplaces);
+})
+
+app.get('/info', async (req, res) => {
+    const bank = await Ort.find({})
+    .catch((err) => res.status(500).send("Server Error"));
+    res.status(200).json(bank);
+})
 
 
 
@@ -91,9 +125,11 @@ try {
 });
 
 
+
 app.listen(port, () => {
     console.log(`Server is running on ${port}`);
 });
+
 
 
 
