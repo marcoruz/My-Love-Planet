@@ -2,6 +2,7 @@
 // eines Orts in der Datenbank. Hier werden Titel,
 // Koordinaten, Details, Bilder, Benutzer-ID und andere Felder festgelegt.
 
+
 const mongoose = require("mongoose");
 
 const ortSchema = new mongoose.Schema(
@@ -45,3 +46,17 @@ const ortSchema = new mongoose.Schema(
 const Post = mongoose.model("Post", postSchema);
 
 module.exports = Post;
+
+const mongoose = require('mongoose');
+
+const placeSchema = new mongoose.Schema({
+  title: String,
+  coordinates: { type: [Number], required: true },
+  details: String,
+  images: [String],
+  userId: String,
+  // ... andere Felder ...
+});
+
+module.exports = mongoose.model('Place', placeSchema);
+
