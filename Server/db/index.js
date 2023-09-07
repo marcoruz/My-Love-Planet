@@ -4,7 +4,7 @@ const DATABASE_URL = 'mongodb+srv://NomadNexus:aws12345@my-love-planet.vco2jng.m
 const mongoString = DATABASE_URL;
 mongoose.connect(mongoString, {
 useNewUrlParser: true,
-useUnifiedTopology: true,
+//useUnifiedTopology: false,
 });
 const dataBase = mongoose.connection;
 dataBase.on("error", (error) => {
