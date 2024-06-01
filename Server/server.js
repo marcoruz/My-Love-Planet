@@ -20,7 +20,7 @@ const corsOptions ={
     optionSuccessStatus:200
   }
   app.use(cors(corsOptions));
-// Body Parser Middleware (für POST-Anfragen)
+// Body Parser Middleware (für POST-Anfragen!!)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
